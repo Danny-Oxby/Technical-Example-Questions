@@ -7,8 +7,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            double[] inputArray = new double[] { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 };
-            foreach (double value in RunningTotal.FindRunningTotal(inputArray))
+            RunningTotalMethodCall();
+        }
+
+        private static void RunningTotalMethodCall()
+        {
+            double[] inputArray = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            foreach (double value in Technical_Example_Questions.Sections.RunningTotal.FindRunningTotal(inputArray))
                 Console.WriteLine(value.ToString(), ", ");
         }
 
