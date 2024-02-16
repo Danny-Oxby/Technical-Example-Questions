@@ -7,6 +7,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            double[] inputArray = new double[] { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 };
+            foreach (double value in RunningTotal.FindRunningTotal(inputArray))
+                Console.WriteLine(value.ToString(), ", ");
+        }
+
+        private static void FizzbuzzMethodCall()
+        {
             Console.WriteLine(FizzBuzz.FindOneFizzBuzz(15));
             Console.WriteLine("-----------------------------");
             foreach (string item in FizzBuzz.FindFizzBuzzList(15))
