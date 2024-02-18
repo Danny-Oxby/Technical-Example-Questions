@@ -8,7 +8,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             STPathFinding roadMap = new STPathFinding();
-            Console.Write(roadMap.FindNearestCinema("B4"));
+            Console.Write(roadMap.FindNearestCinema("A2"));
         }
 
         private static void RunningTotalMethodCall()

@@ -6,7 +6,7 @@ namespace Technical_Example_Questions.Sections
     {
         public List<TownMdl> Map { get; private set; }  // the map of the area to be searched
         private int MaxPathLength;  // the maxium distance to find a cinema in the map
-        private List<TownMdl> ShortestPath = new(); // what is the path to the nearest cinema
+        private List<TownMdl>? ShortestPath; // what is the path to the nearest cinema
 
         public STPathFinding()
         {
@@ -126,7 +126,7 @@ namespace Technical_Example_Questions.Sections
             if (CurrentPosition.Cimema)
             {
                 MaxPathLength = CurrentPathLength; //update the max path to now bw this length
-                Visited.CopyTo(ShortestPath); //update the visited list
+                ShortestPath = new List<TownMdl>(Visited); //update the visited list
                 return;
             }
             else //look for a new town
