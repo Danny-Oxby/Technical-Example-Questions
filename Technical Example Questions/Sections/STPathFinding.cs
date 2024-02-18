@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Technical_Example_Questions.Models;
+﻿using Technical_Example_Questions.Models;
 
 namespace Technical_Example_Questions.Sections
 {
-    public class STPathFindingcs
+    public class STPathFinding
     {
-        // the map of the area to be searched
-        public List<TownMdl> Map { get; private set; }
+        public List<TownMdl> Map { get; private set; }  // the map of the area to be searched
+        private int MaxPathLength;  // the maxium distance to find a cinema in the map
+        private List<TownMdl> ShortestPath = new(); // what is the path to the nearest cinema
 
-        public STPathFindingcs()
+        public STPathFinding()
         {
             Map = CreateAllTowns();
             AssignRoads(Map);
@@ -98,6 +94,55 @@ namespace Technical_Example_Questions.Sections
             Towns[11].Roads.Add(new RoadMdl(Towns[10], 2)); //C4 > C3
         }
         #endregion
+
+        public string FindNearestCinema(string startingTownName, int MaxExceptibleDistance = 99)
+        {
+            if (Map.Find(o => o.Name == startingTownName) == null)
+                return "There is no town with that name";
+            else 
+            {
+                MaxPathLength = MaxExceptibleDistance;
+                SearchTownMap(Map.Find(o => o.Name == startingTownName), new List<TownMdl>());
+                if (ShortestPath == null)
+                    return "There is no town with a cinema within this distance";
+                else
+                    return "Your nearest Cinema is at : " + ShortestPath.Last().Name;
+            }
+        }
+
+        /// <summary>
+        /// Finds the nearest Town with a cinema itterativly
+        /// </summary>
+        /// <param name="CurrentPosition"> what town your currently in </param>
+        /// <param name="CurrentPathLength"> how long the current path is </param>
+        /// <param name="Visited"> the list of all visited towns to revents a circular search </param>
+        /// <returns>The found town with a cinema or null if none is found</returns>
+        private void SearchTownMap(TownMdl CurrentPosition, List<TownMdl> Visited, int CurrentPathLength = 0)
+        {
+            //add the current town to the visited list
+            Visited.Add(CurrentPosition);
+
+            //if a cinema is found in this town
+            if (CurrentPosition.Cimema)
+            {
+                MaxPathLength = CurrentPathLength; //update the max path to now bw this length
+                Visited.CopyTo(ShortestPath); //update the visited list
+                return;
+            }
+            else //look for a new town
+            {
+                foreach(RoadMdl road in CurrentPosition.Roads)
+                {
+                    //if there is still more length to allot and the next town is unvisited
+                    if (CurrentPathLength + road.Disatance < MaxPathLength && !Visited.Contains(road.ToTown)) {
+                        SearchTownMap(road.ToTown, Visited, CurrentPathLength + road.Disatance);
+
+                        //once the path have been checked remove this town of the checked list
+                        Visited.Remove(road.ToTown);
+                    }
+                }
+            }
+        }
 
     }
 }
