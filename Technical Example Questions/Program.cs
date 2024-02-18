@@ -13,7 +13,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         private static void RunningTotalMethodCall()
         {
             double[] inputArray = new double[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-            foreach (double value in Technical_Example_Questions.Sections.RunningTotal.FindRunningTotal(inputArray))
+            foreach (double value in RunningTotal.FindRunningTotal(inputArray))
                 Console.WriteLine(value.ToString(), ", ");
         }
 
