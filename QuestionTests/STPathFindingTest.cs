@@ -26,7 +26,7 @@ namespace QuestionTests
             STPathFinding pf = new STPathFinding();
 
             string ret = pf.FindNearestCinema(startingLocation, PathLength);
-            //dose the expected and catual match
+            //does the expected and actual match
             Assert.Equal(returnResult, ret);
         }
 
@@ -42,7 +42,7 @@ namespace QuestionTests
             STPathFinding pf = new STPathFinding();
 
             string ret = pf.FindNearestCinema(startingLocation);
-            //dose the expected and catual match
+            //does the expected and actual match
             Assert.Equal(returnResult, ret);
         }
     }

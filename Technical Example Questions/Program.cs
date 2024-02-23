@@ -7,6 +7,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(AnnogramChecker.AnnogramComparason("aab", "abc"));
+            Console.WriteLine(AnnogramChecker.AnnogramComparason("sdfgh", "123"));
+            Console.WriteLine(AnnogramChecker.AnnogramComparason("little", "ltitle"));
+        }
+
+        private static void PathFindingMethodCall()
+        {
             STPathFinding roadMap = new STPathFinding();
             Console.Write(roadMap.FindNearestCinema("A2"));
         }

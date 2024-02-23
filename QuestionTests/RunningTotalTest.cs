@@ -31,7 +31,7 @@ namespace QuestionTests
         public void FindRunningTotal_CompareExpected(double[] inputList, double[] expectedReturn)
         {
             double[] ret = RunningTotal.FindRunningTotal(inputList);
-            //dose the expected and catual match
+            //does the expected and actual match
             Assert.Equal(expectedReturn, ret);
         }
 
