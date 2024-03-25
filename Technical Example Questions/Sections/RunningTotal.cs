@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Technical_Example_Questions.Sections
+﻿namespace Technical_Example_Questions.Sections
 {
     //given an array of numbers return a new array of the same length where
     //the position in the new array is equal to all previouse values in the

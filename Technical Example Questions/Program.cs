@@ -5,7 +5,22 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
+
         static void Main(string[] args)
+        {
+            ParenthesesMethodCall();
+        }
+
+        private static void ParenthesesMethodCall()
+        {
+            Console.WriteLine(BalancedParentheses.BalanceChecker("aa"));
+            Console.WriteLine(BalancedParentheses.BalanceChecker("{[]}()"));
+            Console.WriteLine(BalancedParentheses.BalanceChecker("{()})("));
+            Console.WriteLine(BalancedParentheses.BalanceChecker("{(})[]"));
+            Console.WriteLine(BalancedParentheses.BalanceChecker("{[()()(()())()(())]}"));
+        }
+
+        private static void AnnogramCheckerMethodCall()
         {
             Console.WriteLine(AnnogramChecker.AnnogramComparason("aab", "abc"));
             Console.WriteLine(AnnogramChecker.AnnogramComparason("sdfgh", "123"));
