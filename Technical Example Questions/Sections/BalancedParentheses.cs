@@ -45,7 +45,7 @@
             //check value
             foreach (char c in ParString)
             {
-                if (openBrackets.Count != 0) //if no items in stack add to stack
+                if (openBrackets.Count != 0) //see if item is the closing set
                 {
                     if (MatchingPairs[openBrackets.Peek()] == c) //remove from list if matching
                         openBrackets.Pop();
@@ -58,7 +58,7 @@
                         openBrackets.Push(c);
                     }
                 }
-                else //see if item is the closing set
+                else //if no items in stack 
                 {
                     //exit early if a closing bracket would be added to the stack, (also prevents invalid unputs)
                     if (!MatchingPairs.ContainsKey(c))
