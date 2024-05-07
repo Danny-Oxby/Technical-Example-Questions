@@ -8,8 +8,17 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
         static void Main(string[] args)
         {
-            ParenthesesMethodCall();
+            InstanceCounter counter = new InstanceCounter();
+            counter.LoadSentence("This will be my example sentence, it checks the number of times that a 'word' has been writen!!!" +
+                "For example, 'orange, orange, orange' will return 3, right?");
+            Console.WriteLine(counter.ReturnCount("orange"));
+            Console.WriteLine(counter.ReturnCount("pinapple"));
+            Console.WriteLine(counter.ReturnCount("3"));
+            Console.WriteLine(counter.ReturnCount("4"));
+            Console.WriteLine(counter.ReturnCount(""));
+            Console.WriteLine(counter.ReturnCount("example"));
         }
+
 
         private static void ParenthesesMethodCall()
         {
