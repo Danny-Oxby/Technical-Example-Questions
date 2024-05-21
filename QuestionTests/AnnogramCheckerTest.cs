@@ -32,5 +32,19 @@ namespace QuestionTests
             //does the expected and actual match
             Assert.Equal(expectedRet, ret);
         }
+
+
+        [Theory]
+        [InlineData(" ", "", false)]
+        [InlineData("abs", "aabbcc", false)]
+        [InlineData("", "", true)]
+        [InlineData("123456789", "123456789", true)]
+        [InlineData("Tab", "Bat", true)]
+        public void AnnogramChecker_DirVer_CompareExpected(string word1, string word2, bool expectedRet)
+        {
+            bool ret = AnnogramChecker.AnnogramComparason_DirVer(word1, word2);
+            //does the expected and actual match
+            Assert.Equal(expectedRet, ret);
+        }
     }
 }

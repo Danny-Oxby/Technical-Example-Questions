@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Technical_Example_Questions.Sections;
 
 namespace MyApp // Note: actual namespace depends on the project name.
@@ -7,6 +8,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
 
         static void Main(string[] args)
+        {
+            AnnogramCheckerSpeedComparason();
+        }
+
+        private static void InstanceCounter()
         {
             InstanceCounter counter = new InstanceCounter();
             counter.LoadSentence("This will be my example sentence, it checks the number of times that a 'word' has been writen!!!" +
@@ -19,7 +25,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine(counter.ReturnCount("example"));
         }
 
-
         private static void ParenthesesMethodCall()
         {
             Console.WriteLine(BalancedParentheses.BalanceChecker("aa"));
@@ -29,11 +34,52 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine(BalancedParentheses.BalanceChecker("{[()()(()())()(())]}"));
         }
 
+        //curretn test is linmited by the length of string find longer annogram before testing again
+        private static void AnnogramCheckerSpeedComparason()
+        {
+            Stopwatch sw = new(); // used to check
+
+            long[,] timervalues = new long[2, 10];
+
+            for (int index = 0; index < 10; index++)
+            {
+                sw = Stopwatch.StartNew();
+
+                AnnogramChecker.AnnogramComparason("aab", "abc");
+                AnnogramChecker.AnnogramComparason("sdfgh", "123");
+                AnnogramChecker.AnnogramComparason("little", "ltitle");
+
+                timervalues [0, index] = sw.ElapsedMilliseconds;
+            }
+
+            for (int index = 0; index < 10; index++)
+            {
+                sw = Stopwatch.StartNew();
+
+                AnnogramChecker.AnnogramComparason_DirVer("aab", "abc");
+                AnnogramChecker.AnnogramComparason_DirVer("sdfgh", "123");
+                AnnogramChecker.AnnogramComparason_DirVer("little", "ltitle");
+
+                timervalues[1, index] = sw.ElapsedMilliseconds;
+            }
+
+            sw.Stop();
+
+            timervalues.ToString();
+        }
+
         private static void AnnogramCheckerMethodCall()
         {
             Console.WriteLine(AnnogramChecker.AnnogramComparason("aab", "abc"));
             Console.WriteLine(AnnogramChecker.AnnogramComparason("sdfgh", "123"));
             Console.WriteLine(AnnogramChecker.AnnogramComparason("little", "ltitle"));
+        }
+
+        private static void AnnogramCheckerDirMethodCall()
+        {
+            Console.WriteLine(AnnogramChecker.AnnogramComparason_DirVer("aab", "abc"));
+            Console.WriteLine(AnnogramChecker.AnnogramComparason_DirVer("sdfgh", "123"));
+            Console.WriteLine(AnnogramChecker.AnnogramComparason_DirVer("little", "ltitle"));
         }
 
         private static void PathFindingMethodCall()
