@@ -9,7 +9,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
         static void Main(string[] args)
         {
-            AnnogramCheckerSpeedComparason();
+            Console.WriteLine(CountAndSaySequence.CountAndSay(5));
+            Console.WriteLine(CountAndSaySequence.CountAndSay(7));
         }
 
         private static void InstanceCounter()
