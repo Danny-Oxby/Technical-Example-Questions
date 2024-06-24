@@ -43,7 +43,7 @@
             {
                 if(word.Length < 1) { continue; } //skip current word if it's length is zero << this may happen for the following strings " '" or "!!!"
 
-                if(FoundWords.TryGetValue(word, out _)) //the retruned value can be ignored as we are only adding 1
+                if(FoundWords.TryGetValue(word, out _)) //the returned value can be ignored as we are only adding 1
                     FoundWords[word] ++;
                 else
                     FoundWords.Add(word, 1);

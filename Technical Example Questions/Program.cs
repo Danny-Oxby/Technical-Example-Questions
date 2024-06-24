@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Technical_Example_Questions.Sections;
+using Technical_Example_Questions.SupportingMethods;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -8,6 +9,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
 
         static void Main(string[] args)
+        {
+            GenerateBinaryTrees Trees = new GenerateBinaryTrees();
+
+            Console.WriteLine(TreeSymmetry.IsTreeSymmetrical(Trees.GenerateSymetricalTree()));
+            Console.WriteLine(TreeSymmetry.IsTreeSymmetrical(Trees.GenerateNonSymetricalTree()));
+        }
+
+        private static void Number_CountAndSay()
         {
             Console.WriteLine(CountAndSaySequence.CountAndSay(5));
             Console.WriteLine(CountAndSaySequence.CountAndSay(7));
