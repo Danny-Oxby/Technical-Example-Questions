@@ -7,8 +7,21 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
-
         static void Main(string[] args)
+        {
+            UsernameValidation();
+        }
+
+        private static void UsernameValidation()
+        {
+            Console.WriteLine(UserValidator.CodelandUsernameValidation("aa_"));
+            Console.WriteLine(UserValidator.CodelandUsernameValidation("12345678901234567890123456"));
+            Console.WriteLine(UserValidator.CodelandUsernameValidation("1_xcvd"));
+            Console.WriteLine(UserValidator.CodelandUsernameValidation("1234567_"));
+            Console.WriteLine(UserValidator.CodelandUsernameValidation("valid"));
+        }
+
+        private static void SymetricalTrees()
         {
             GenerateBinaryTrees Trees = new GenerateBinaryTrees();
 

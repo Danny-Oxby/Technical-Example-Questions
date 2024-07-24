@@ -40,7 +40,7 @@
                 return false;
 
             //create storage
-            Stack<char> openBrackets = new Stack<char>(); //stackt o store open cases
+            Stack<char> openBrackets = new Stack<char>(); //stack to store open cases
 
             //check value
             foreach (char c in ParString)
