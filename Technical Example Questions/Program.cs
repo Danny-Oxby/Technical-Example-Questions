@@ -9,7 +9,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            UsernameValidation();
+            IntersectingArray.FindIntersectionNoLinq(new string[] { "1, 3, 4, 7, 13", "1, 2, 4, 13, 15" });
         }
 
         private static void UsernameValidation()
