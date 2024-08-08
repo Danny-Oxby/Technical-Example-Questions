@@ -9,7 +9,15 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            GeneratePeople.PrintReturnedPerson(
+                DataSearchingWithLinq.FindOldestPerson(
+                    GeneratePeople.GenerateClass()));
+        }
+
+        private static void StringIntersectionCheck()
+        {
             IntersectingArray.FindIntersectionNoLinq(new string[] { "1, 3, 4, 7, 13", "1, 2, 4, 13, 15" });
+            IntersectingArray.FindIntersection(new string[] { "1, 3, 4, 7, 13", "1, 2, 4, 13, 15" });
         }
 
         private static void UsernameValidation()
