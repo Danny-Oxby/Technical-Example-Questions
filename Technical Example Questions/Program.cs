@@ -9,9 +9,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            GeneratePeople.PrintReturnedPerson(
-                DataSearchingWithLinq.FindOldestPerson(
-                    GeneratePeople.GenerateClass()));
+            //GeneratePeople.PrintReturnedPerson(
+            //    DataSearchingWithLinq.FindOldestPerson(
+            //        GeneratePeople.GenerateClass()));
+
+            var t = DataSearchingWithLinq.FindMostCommonName(GeneratePeople.GenerateCrowd());
         }
 
         private static void StringIntersectionCheck()
