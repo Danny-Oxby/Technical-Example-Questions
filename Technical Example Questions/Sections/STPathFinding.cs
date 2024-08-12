@@ -97,7 +97,7 @@ namespace Technical_Example_Questions.Sections
 
         public string FindNearestCinema(string startingTownName, int MaxExceptibleDistance = 99)
         {
-            if (Map.Find(o => o.Name == startingTownName) == null)
+            if (Map.Find(o => o.Name == startingTownName) == null) //consider using contains here?
                 return "There is no town with that name";
             else 
             {

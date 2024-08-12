@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Technical_Example_Questions.Models;
 using Technical_Example_Questions.Sections;
 using Technical_Example_Questions.SupportingMethods;
 
@@ -9,11 +10,41 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            //GeneratePeople.PrintReturnedPerson(
-            //    DataSearchingWithLinq.FindOldestPerson(
-            //        GeneratePeople.GenerateClass()));
+            //foreach(int n in DataSearchingWithLinq.FindMultipleValues(GenerateSimpleLists.FibList(15), 5))
+            //    Console.Write(n+", ");
 
-            var t = DataSearchingWithLinq.FindMostCommonName(GeneratePeople.GenerateCrowd());
+            //Console.WriteLine("\n -------------------- ");
+
+            //Person? oldest = DataSearchingWithLinq.FindOldestPerson(GeneratePeople.GenerateClass());
+            //if (oldest != null)
+            //    GeneratePeople.PrintReturnedPerson(oldest);
+            //else
+            //    Console.WriteLine("There is no oldest person for the inputted list");
+
+            //(string name, int count) = DataSearchingWithLinq.FindMostCommonName(GeneratePeople.GenerateCrowd());
+            //Console.Write("The most common name is: " + name + " with " + count + " occurences.");
+
+            //foreach(Person p in DataSearchingWithLinq.FindExpectedAudence(
+            //    GeneratePeople.GenerateGroupWithVaringAges(), 
+            //    GeneratePeople.TownList(),
+            //    20))
+            //{
+            //    GeneratePeople.PrintReturnedPerson(p);
+            //}
+
+            //Console.WriteLine("\n -------------------- ");
+
+            Console.WriteLine(DataSearchingWithLinq.NumberOfPeoplrWithoutCinemaAccess(
+                GeneratePeople.GenerateGroupWithVaringAges(),
+                GeneratePeople.TownList()));
+
+            //foreach (Person p in DataSearchingWithLinq.FindExpectedAudenceLOJ(
+            //    GeneratePeople.GenerateGroupWithVaringAges(),
+            //    GeneratePeople.CinemaList(),
+            //    20))
+            //{
+            //    GeneratePeople.PrintReturnedPerson(p);
+            //}
         }
 
         private static void StringIntersectionCheck()

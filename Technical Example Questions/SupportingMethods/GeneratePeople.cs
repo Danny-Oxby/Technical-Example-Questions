@@ -4,6 +4,10 @@ namespace Technical_Example_Questions.SupportingMethods
 {
     public static class GeneratePeople
     {
+        /// <summary>
+        /// Generate a family of 5 with 2 pearents and 3 children
+        /// </summary>
+        /// <returns>The list of that family</returns>
         public static Person[] GenerateSmallFamily()
         {
             //generate children
@@ -21,6 +25,10 @@ namespace Technical_Example_Questions.SupportingMethods
             return new Person[] { Mother, Father, Child1, Child2, Child3 };
         }
 
+        /// <summary>
+        /// Generate a class of 10 people, 1 teacher 9 students
+        /// </summary>
+        /// <returns>The generated class of people</returns>
         public static Person[] GenerateClass()
         {
             return new Person[] {
@@ -38,6 +46,46 @@ namespace Technical_Example_Questions.SupportingMethods
             new("Sophia", new DateOnly(1953, 10, 23), "North Hykeham") };
         }
 
+        /// <summary>
+        /// Generate a group of 25 people with varing places to live
+        /// </summary>
+        /// <returns>The generated list of people born bwtenn 1980 and 2010</returns>
+        public static Person[] GenerateGroupWithVaringAges()
+        {
+            return new Person[]
+            {
+                new("Adam", new DateOnly(2010, 12, 10), "Saxilby"),
+                new("Daniel", new DateOnly(2000, 1, 8), "Lincoln"),
+                new("Sam", new DateOnly(1980, 2, 6), "Gainsborough"),
+                new("Connor", new DateOnly(1990, 3, 4), "Saxilby"),
+                new("Harry", new DateOnly(2010, 4, 2), "Scampton"),
+                new("Charls", new DateOnly(1980, 5, 10), "Saxilby"),
+                new("Julious", new DateOnly(2020, 6, 8), "North Hykeham"),
+                new("Harry", new DateOnly(2000, 7, 6), "Scampton"),
+                new("Gengouse", new DateOnly(2010, 8, 4), "Lincoln"),
+                new("George", new DateOnly(1980, 9, 2), "Gainsborough"),
+                new("Henry", new DateOnly(1990, 10, 10), "Gainsborough"),
+                new("Rose", new DateOnly(2000, 11, 8), "Saxilby"),
+                new("Betty", new DateOnly(1990, 12, 6), "Lincoln"),
+                new("Charlot", new DateOnly(1980, 1, 4), "North Hykeham"),
+                new("Amanda", new DateOnly(1980, 2, 2), "Scampton"),
+                new("Lilly", new DateOnly(2000, 3, 10), "Lincoln"),
+                new("Charlot", new DateOnly(2010, 4, 8), "Scampton"),
+                new("Sophie", new DateOnly(1990, 5, 5), "Lincoln"),
+                new("Rose", new DateOnly(2000, 6, 4), "Gainsborough"),
+                new("Maya", new DateOnly(1980, 7, 2), "Saxilby"),
+                new("Rosaline", new DateOnly(2020, 8, 10), "North Hykeham"),
+                new("Jane", new DateOnly(1990, 9, 8), "Gainsborough"),
+                new("Sophie", new DateOnly(2010, 10, 6), "Saxilby"),
+                new("Illia", new DateOnly(1980, 11, 4), "Scampton"),
+                new("Sophie", new DateOnly(2020, 12, 2), "Lincoln"),
+            };
+        }
+
+        /// <summary>
+        /// Generate a list of people with only names
+        /// </summary>
+        /// <returns>A list of 5 people with some duplicate names</returns>
         public static Person[] GenerateCrowd()
         {
             return new Person[] {
@@ -54,23 +102,39 @@ namespace Technical_Example_Questions.SupportingMethods
             };
         }
 
-        public static int[] FibList(int length)
+        /// <summary>
+        /// Generate a list of towns matching those set in generate class
+        /// </summary>
+        /// <returns>A list of generates towns, with their names and cinema state</returns>
+        public static TownMdl[] TownList()
         {
-            if (length <= 0) //if no length retrun empty list
-                return Array.Empty<int>();
-
-            List<int> numbers = new List<int>(); //unkown length so start as list then convert on return
-
-            if(length > 0) 
-                numbers.Add(0);
-            if (length > 1)
-                numbers.Add(1);
-            for(int i = 2; i < length; i++)
-                numbers.Add(numbers[i-2] + numbers[i-1]);
-
-            return numbers.ToArray();
+            return new TownMdl[]
+            {
+                new("Lincoln", true),
+                new("Gainsborough", true),
+                new("Scampton", false),
+                new("Saxilby", false),
+                new("North Hykeham", false)
+            };
         }
 
+        /// <summary>
+        /// Generate a list of towns that have a cinema
+        /// </summary>
+        /// <returns>A list of generates towns, with their names and cinema state</returns>
+        public static TownMdl[] CinemaList()
+        {
+            return new TownMdl[]
+            {
+                new("Lincoln", true),
+                new("Gainsborough", true)
+            };
+        }
+
+        /// <summary>
+        /// Prints out all information contained in a person modle to the console
+        /// </summary>
+        /// <param name="person">The values that will be printed to the console</param>
         public static void PrintReturnedPerson(Person person)
         {
             if (person.Name != "N/A")
@@ -82,5 +146,6 @@ namespace Technical_Example_Questions.SupportingMethods
             if (person.Children != Array.Empty<Person>() && person.Children != null)
                 Console.WriteLine("Number of Children:" + person.Children.Length);
         }
+
     }
 }
